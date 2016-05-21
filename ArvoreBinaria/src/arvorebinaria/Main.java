@@ -26,7 +26,7 @@ public class Main {
         Node d = arvore.inserirfilhoesq(c, 2);
         arvore.exibeEmOrdem(raiz);
         System.out.println("");
-        
+        arvore.quantelementos(raiz,0);
         
     }
     
