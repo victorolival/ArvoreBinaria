@@ -24,6 +24,9 @@ public class Main {
         Node b = arvore.inserirfilhodir(raiz, 22);
         Node c = arvore.inserirfilhodir(b, 50);
         Node d = arvore.inserirfilhoesq(c, 2);
+        arvore.exibeEmOrdem(raiz);
+        System.out.println("");
+        arvore.quantelementos(raiz);
         
     }
     

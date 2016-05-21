@@ -37,15 +37,30 @@ public class ArvoreBinario {
         return no.filhodir;
     }
     
-    void exibeEmOrdem (Node no) {
-    if (no.filhoesq != null) {
-        exibeEmOrdem (no.filhoesq);
-    }
-    System.out.println (no.getValor());
-    
-    if (no.filhodir != null) {
-        exibeEmOrdem (no.filhodir);
-    }
-}
+    public void exibeEmOrdem (Node no) {
+        if (no.filhoesq != null) {
+            exibeEmOrdem (no.filhoesq);
+        }
+        System.out.print(no.getValor()+",");
 
+        if (no.filhodir != null) {
+            exibeEmOrdem (no.filhodir);
+        }
+    
+    }
+    
+    public void quantelementos (Node no){
+        int cont = 0;
+        if (no.filhoesq != null) {
+            exibeEmOrdem (no.filhoesq);
+        }
+        cont = cont + 1;
+       
+
+        if (no.filhodir != null) {
+            exibeEmOrdem (no.filhodir);
+        }
+        System.out.print(cont);
+    }
+    
 }
