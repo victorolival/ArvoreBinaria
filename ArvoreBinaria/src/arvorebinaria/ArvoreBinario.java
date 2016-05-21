@@ -49,18 +49,6 @@ public class ArvoreBinario {
     
     }
     
-    public void quantelementos (Node no){
-        int cont = 0;
-        if (no.filhoesq != null) {
-            exibeEmOrdem (no.filhoesq);
-        }
-        cont = cont + 1;
-       
-
-        if (no.filhodir != null) {
-            exibeEmOrdem (no.filhodir);
-        }
-        System.out.print(cont);
-    }
+    
     
 }
