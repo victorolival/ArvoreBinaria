@@ -16,6 +16,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ArvoreBinario arvore = new ArvoreBinario();
+        
+        arvore.criarraiz(10);
+        arvore.inserirfilhodir(22);
+        arvore.inserirfilhoesq(9);
+        
     }
     
 }
