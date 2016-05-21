@@ -12,21 +12,40 @@ package arvorebinaria;
 public class ArvoreBinario {
     Node raiz;
     
+    public void criararvore(){
+        raiz = null;
+    }
         
-    public void criarraiz(int valor){
+    public Node criarraiz(int valor){
         if(raiz != null){
             System.out.println("Raiz já criada, "+raiz);
         }
         else{
             raiz = new Node(valor);
+            
         }
+    return raiz;
     }
     
-    public void inserirfilhoesq(int valor){
-        raiz.filhoesq = new Node(valor);
+    public Node inserirfilhoesq(Node no,int valor){
+        no.filhoesq = new Node(valor);
+        return no.filhoesq;
     }
     
-    public void inserirfilhodir(int valor){
-        raiz.filhodir = new Node(valor);
+    public Node inserirfilhodir(Node no,int valor){
+        no.filhodir = new Node(valor);
+        return no.filhodir;
     }
+    
+    void exibeEmOrdem (Node no) {
+    if (no.filhoesq != null) {
+        exibeEmOrdem (no.filhoesq);
+    }
+    System.out.println (no.getValor());
+    
+    if (no.filhodir != null) {
+        exibeEmOrdem (no.filhodir);
+    }
+}
+
 }

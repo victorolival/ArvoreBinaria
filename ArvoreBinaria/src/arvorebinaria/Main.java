@@ -18,9 +18,12 @@ public class Main {
         // TODO code application logic here
         ArvoreBinario arvore = new ArvoreBinario();
         
-        arvore.criarraiz(10);
-        arvore.inserirfilhodir(22);
-        arvore.inserirfilhoesq(9);
+        arvore.criararvore();
+        Node raiz = arvore.criarraiz(10);
+        Node a = arvore.inserirfilhoesq(raiz, 8);
+        Node b = arvore.inserirfilhodir(raiz, 22);
+        Node c = arvore.inserirfilhodir(b, 50);
+        Node d = arvore.inserirfilhoesq(c, 2);
         
     }
     
