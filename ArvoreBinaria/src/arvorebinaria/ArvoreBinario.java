@@ -11,6 +11,9 @@ package arvorebinaria;
  */
 public class ArvoreBinario {
     Node raiz;
+    int cont = 0;
+    int maior = 0;
+    int menor = 9999;
     
     public void criararvore(){
         raiz = null;
@@ -37,33 +40,60 @@ public class ArvoreBinario {
         return no.filhodir;
     }
     
-    public void exibeEmOrdem (Node no) {
-        if (no.filhoesq != null) {
-            exibeEmOrdem (no.filhoesq);
-        }
-        System.out.print(no.getValor()+",");
-
-        if (no.filhodir != null) {
-            exibeEmOrdem (no.filhodir);
-        }
     
+    
+    private int quantelementos (Node no){
+        if(no != null){
+            quantelementos(no.filhoesq);
+            quantelementos(no.filhodir);
+            cont++;
+        }
+        return cont;
     }
     
-    public void quantelementos (Node no,int cont){
-        //int cont = 0;
-        if (no.filhoesq != null) {
-            cont++;
-            quantelementos (no.filhoesq,cont);
+    public void imprimirquantelementos(Node no){
+        quantelementos(no);
+        System.out.println("Quantidade de elementos da Árvore: "+cont);
+    }
+    
+    public void exibePosOrdem (Node no) {
+        if(no != null){
+            exibePosOrdem(no.filhoesq);
+            exibePosOrdem(no.filhodir);
+            System.out.print(no.getValor() +",");
         }
-        
-        
-       
-
-        if (no.filhodir != null) {
-            cont++;
-            quantelementos (no.filhodir, cont);
+    }
+    
+    private int maiorelemento (Node no){
+        if(no != null ){
+            if(no.getValor() > maior){
+                maior = no.getValor();
+            }
+            maiorelemento(no.filhoesq);
+            maiorelemento(no.filhodir);
         }
-        System.out.print(cont);
+        return maior;
+    }
+    
+    public void imprimirmaiorelemento(Node no){
+        maiorelemento(no);
+        System.out.println("Maior elemento da Árvore: "+maior);
+    }
+    
+    private int menorelemento (Node no){
+        if(no != null){
+            if(no.getValor() < menor){
+                menor = no.getValor();
+                }
+            menorelemento(no.filhoesq);
+            menorelemento(no.filhodir);
+        }
+        return menor;
+    }
+    
+    public void imprimirmenorelemento(Node no){
+        menorelemento(no);
+        System.out.println("Menor elemento da Árvore: "+menor);
     }
     
 }
