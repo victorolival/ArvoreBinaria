@@ -11,9 +11,10 @@ package arvorebinaria;
  */
 public class ArvoreBinario {
     Node raiz;
-    int cont = 0;
-    int maior = 0;
-    int menor = 9999;
+    private int cont = 0;
+    private int maior = 0;
+    private int menor = 9999;
+    private int soma = 0;
     
     public void criararvore(){
         raiz = null;
@@ -94,6 +95,22 @@ public class ArvoreBinario {
     public void imprimirmenorelemento(Node no){
         menorelemento(no);
         System.out.println("Menor elemento da Árvore: "+menor);
+    }
+    
+    private int somaelementos(Node no){
+        if(no != null){
+            soma = soma + no.getValor();
+            somaelementos(no.filhoesq);
+            somaelementos(no.filhodir);
+        }
+        
+
+        return soma;
+    }
+    
+    public void imprimirsomaelementos(Node no){
+        somaelementos(no);
+        System.out.println("Soma dos elementos da Árvore: "+soma);
     }
     
 }
